@@ -1,0 +1,3 @@
+[submodule "TrayNotification"]
+	path = TrayNotification
+	url = https://github.com/PlusHaze/TrayNotification.git

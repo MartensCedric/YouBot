@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -18,4 +18,5 @@ dependencies {
     //compile 'com.google.apis:google-api-services-plus:v1-rev527-1.22.0'
     compile 'com.google.apis:google-api-services-oauth2:v2-rev75-1.19.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.9'
+    compile files ('libs/TrayNotification.jar')
 }

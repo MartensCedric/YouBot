@@ -24,6 +24,7 @@ public class HeaderController extends Controller {
 
     @FXML private ImageView dpImageView;
     @FXML private Label usernameLabel;
+    @FXML private Button myChannelButton;
     @FXML private Button logButton;
     @FXML private Tooltip loginTooltip;
     @FXML private Button demoButton;
@@ -37,18 +38,19 @@ public class HeaderController extends Controller {
         Circle clip = new Circle(32,32,32);
         dpImageView.setClip(clip);
 
+        myChannelButton.setText("Show videos from my channel");
         if (YouBot.isLoggedIn()) {
             setDP(YouBot.getImage());
+            myChannelButton.setVisible(true);
         } else {
             setDP(YouBot.getDefaultImage());
+            myChannelButton.setVisible(false);
         }
 
         login = new ImageView("images/login.png");
         logout = new ImageView("images/logout.png");
         logButton.setGraphic(login);
 
-        ColorAdjust reddish = new ColorAdjust();
-        Color color = Color.RED;
         ImageView demoView = new ImageView();
         demoView.setImage(new Image("/images/youtube.png"));
         demoButton.setGraphic(demoView);
@@ -72,6 +74,12 @@ public class HeaderController extends Controller {
     }
 
     @FXML
+    public void showMyVideos()
+    {
+
+    }
+
+    @FXML
     public void log() {
         logButton.setDisable(true);
         System.out.println("log button is pressed");
@@ -84,6 +92,7 @@ public class HeaderController extends Controller {
                             loginTooltip.setText("Logout");
                             setDP(YouBot.getImage());
                             setUsername(YouBot.getUsername());
+                            myChannelButton.setVisible(true);
                         }
                     }, true);
 
@@ -96,6 +105,7 @@ public class HeaderController extends Controller {
                         setDP(YouBot.getDefaultImage());
                         setUsername("guest");
                         logButton.setDisable(false);
+                        myChannelButton.setVisible(false);
                     }
             , false);
         }
